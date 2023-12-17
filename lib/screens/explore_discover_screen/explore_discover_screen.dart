@@ -1,3 +1,4 @@
+import 'package:device_explorer/components/animations/scroll/animated_scroll_indicator.dart';
 import 'package:device_explorer/components/side_menu/side_menu.dart';
 import 'package:device_explorer/components/side_menu/widgets/side_menu_button.dart';
 import 'package:device_explorer/controller/theme/theme_provider.dart';
@@ -21,6 +22,10 @@ class ExploreDiscoverScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       drawer: SideMenu(theme: theme),
+      body: const Stack(
+        fit: StackFit.expand,
+        children: [AnimatedScrollIndicator()],
+      ),
     );
   }
 }
