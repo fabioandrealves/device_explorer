@@ -1,31 +1,31 @@
 import 'package:device_explorer/controller/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 
-class SwitchComponent extends StatefulWidget {
+class SwitchAppTheme extends StatefulWidget {
   final ThemeProvider theme;
 
-  const SwitchComponent({
+  const SwitchAppTheme({
     super.key,
     required this.theme,
   });
 
   @override
-  State<SwitchComponent> createState() => _SwitchComponentState();
+  State<SwitchAppTheme> createState() => _SwitchAppThemeState();
 }
 
-class _SwitchComponentState extends State<SwitchComponent> {
+class _SwitchAppThemeState extends State<SwitchAppTheme> {
   final MaterialStateProperty<Icon?> thumbIcon =
       MaterialStateProperty.resolveWith<Icon?>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.selected)) {
         return const Icon(
           Icons.check,
-          color: Color(0xffa7c7fc),
+          color: Colors.green,
         );
       }
       return const Icon(
         Icons.close,
-        color: Color(0xFF001428),
+        color: Colors.red,
       );
     },
   );
@@ -35,13 +35,13 @@ class _SwitchComponentState extends State<SwitchComponent> {
     if (states.contains(MaterialState.selected)) {
       return const Color(0xffa7c7fc);
     }
-    return const Color(0xFF001428);
+    return const Color(0xFF22306A);
   });
 
   final MaterialStateProperty<Color?> thumbColor =
       MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
     if (states.contains(MaterialState.selected)) {
-      return const Color(0xFF001428);
+      return const Color(0xFF22306A);
     }
     return Colors.white;
   });

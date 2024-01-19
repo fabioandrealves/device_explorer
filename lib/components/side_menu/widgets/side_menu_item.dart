@@ -9,12 +9,14 @@ class SideMenuItem extends StatelessWidget {
   final MenuItem item;
   final MenuItem selectedMenuItem;
   final VoidCallback onTap;
+  final bool autoClose;
 
   const SideMenuItem({
     super.key,
     required this.item,
     required this.selectedMenuItem,
     required this.onTap,
+    required this.autoClose,
   });
 
   @override
@@ -23,7 +25,12 @@ class SideMenuItem extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: () {
+          onTap();
+          if (autoClose) {
+            Navigator.of(context).pop();
+          }
+        },
         child: ListTile(
           dense: true,
           contentPadding: EdgeInsets.only(

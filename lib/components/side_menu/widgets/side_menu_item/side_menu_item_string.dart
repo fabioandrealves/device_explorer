@@ -15,14 +15,14 @@ class SideMenuItemString extends StatelessWidget {
 
   String getItemString(MenuItem item) {
     switch (item) {
-      case MenuItem.design:
-        return "Design";
-      case MenuItem.camera:
-        return "Camera";
-      case MenuItem.battery:
-        return "Battery";
-      case MenuItem.deviceSpecs:
-        return "Specs";
+      case MenuItem.dish:
+        return "Dishes";
+      case MenuItem.salad:
+        return "Salads";
+      case MenuItem.dessert:
+        return "Desserts";
+      case MenuItem.drink:
+        return "Drinks";
     }
   }
 

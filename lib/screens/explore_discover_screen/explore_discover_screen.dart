@@ -4,11 +4,11 @@ import 'package:device_explorer/components/side_menu/widgets/side_menu_button.da
 import 'package:device_explorer/controller/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 
-class ExploreDiscoverScreen extends StatelessWidget {
+class ExploreDishescreen extends StatelessWidget {
   final ThemeProvider theme;
   final GlobalKey<ScaffoldState> menuKey = GlobalKey<ScaffoldState>();
 
-  ExploreDiscoverScreen({
+  ExploreDishescreen({
     super.key,
     required this.theme,
   });

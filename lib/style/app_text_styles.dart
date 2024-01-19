@@ -16,6 +16,6 @@ class AppTextStyles {
       TextStyle(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,
-        color: const Color(0xFF001428),
+        color: Colors.black,
       );
 }

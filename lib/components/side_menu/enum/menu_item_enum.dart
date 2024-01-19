@@ -1,6 +1,6 @@
 enum MenuItem {
-  design,
-  camera,
-  battery,
-  deviceSpecs,
+  dish,
+  salad,
+  dessert,
+  drink,
 }

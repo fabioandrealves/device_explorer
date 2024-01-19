@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: themeProvider.isDarkMode == false
             ? ThemeData.light()
             : ThemeData.dark(),
-        home: ExploreDiscoverScreen(
+        home: ExploreDishescreen(
           theme: themeProvider,
         ),
       );

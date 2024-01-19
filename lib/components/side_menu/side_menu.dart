@@ -1,10 +1,8 @@
 import 'dart:ui';
 
-import 'package:device_explorer/components/side_menu/widgets/device_logo.dart';
+import 'package:device_explorer/components/side_menu/widgets/dish_logo.dart';
 import 'package:device_explorer/components/side_menu/widgets/side_menu_item.dart';
-import 'package:device_explorer/components/switch/switch_component.dart';
 import 'package:device_explorer/controller/theme/theme_provider.dart';
-import 'package:device_explorer/style/app_text_styles.dart';
 import 'package:device_explorer/style/percentage_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -23,11 +21,12 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
-  MenuItem selectedMenuItem = MenuItem.design;
+  MenuItem selectedMenuItem = MenuItem.dish;
 
-  Widget buildSizedBox() {
+  Widget _buildVerticalSpacing(
+      {required double height, required double factor}) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 2.17.percent(),
+      height: MediaQuery.of(context).size.height * factor.percent(),
     );
   }
 
@@ -43,14 +42,16 @@ class _SideMenuState extends State<SideMenu> {
           body: Padding(
             padding: EdgeInsets.only(top: screenHeight * 9.67.percent()),
             child: ListView.builder(
-              itemCount: 2 + MenuItem.values.length + 4,
+              itemCount: 2 + MenuItem.values.length + 3,
               itemBuilder: (context, index) {
                 if (index == 0) {
-                  return const DeviceLogo();
+                  return const DishLogo();
                 } else if (index == 1) {
-                  return buildSizedBox();
+                  return _buildVerticalSpacing(
+                      height: screenHeight, factor: 2.17);
                 } else if (index == 5) {
-                  return buildSizedBox();
+                  return _buildVerticalSpacing(
+                      height: screenHeight, factor: 2.17);
                 } else if (index == 6) {
                   return Padding(
                     padding: EdgeInsets.symmetric(
@@ -59,40 +60,22 @@ class _SideMenuState extends State<SideMenu> {
                     child: const Divider(),
                   );
                 } else if (index == 7) {
-                  return buildSizedBox();
-                } else if (index == 8) {
-                  return ListTile(
-                    dense: false,
-                    contentPadding: EdgeInsets.only(
-                      left: screenWidth * 7.41.percent(),
-                    ),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Toggle theme:",
-                          style:
-                              AppTextStyles.sideMenuItemTextStyle(fontSize: 16),
-                        ),
-                        SwitchComponent(
-                          theme: widget.theme,
-                        )
-                      ],
-                    ),
-                  );
+                  return _buildVerticalSpacing(
+                      height: screenHeight, factor: 2.17);
                 }
 
                 final menuItem = index == 2
-                    ? MenuItem.design
+                    ? MenuItem.dish
                     : index == 3
-                        ? MenuItem.camera
+                        ? MenuItem.salad
                         : index == 4
-                            ? MenuItem.battery
-                            : MenuItem.deviceSpecs;
+                            ? MenuItem.dessert
+                            : MenuItem.drink;
 
                 return SideMenuItem(
                   item: menuItem,
                   selectedMenuItem: selectedMenuItem,
+                  autoClose: false,
                   onTap: () {
                     setState(() {
                       selectedMenuItem = menuItem;

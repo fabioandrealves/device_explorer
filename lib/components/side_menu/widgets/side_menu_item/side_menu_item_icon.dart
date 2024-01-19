@@ -11,20 +11,20 @@ class SideMenuItemIcon extends StatelessWidget {
       {super.key, required this.item, required this.selectedMenuItem});
 
   String getIconTheme(MenuItem selectedMenuItem, MenuItem item) {
-    return selectedMenuItem == item ? "blue" : "dark";
+    return selectedMenuItem == item ? "blue" : "black";
   }
 
   String iconPath(MenuItem item) {
     final theme = getIconTheme(selectedMenuItem, item);
     switch (item) {
-      case MenuItem.design:
-        return "assets/images/side_menu/ic_design_$theme.png";
-      case MenuItem.camera:
-        return "assets/images/side_menu/ic_camera_$theme.png";
-      case MenuItem.battery:
-        return "assets/images/side_menu/ic_battery_$theme.png";
-      case MenuItem.deviceSpecs:
-        return "assets/images/side_menu/ic_specs_$theme.png";
+      case MenuItem.dish:
+        return "assets/images/side_menu/ic_dish_$theme.png";
+      case MenuItem.salad:
+        return "assets/images/side_menu/ic_salad_$theme.png";
+      case MenuItem.dessert:
+        return "assets/images/side_menu/ic_dessert_$theme.png";
+      case MenuItem.drink:
+        return "assets/images/side_menu/ic_drink_$theme.png";
     }
   }
 
